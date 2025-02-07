@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Welcome to Coachly, the Coach Booking App
 
-## Getting Started
+This guide will help with running the PostgreSQL database in Docker and setting up Prisma for database management.
 
-First, run the development server:
+## Installation of Dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [Docker](https://docs.docker.com/get-docker/)
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/)
+
+```sh
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **1. Start the PostgreSQL Database**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Start a PostgreSQL container:
 
-## Learn More
+```sh
+docker-compose up -d
+```
 
-To learn more about Next.js, take a look at the following resources:
+This will launch a PostgreSQL database using the configuration in `docker-compose.yaml`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **2. Check If the Database Is Running**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To verify that PostgreSQL is running, execute:
 
-## Deploy on Vercel
+```sh
+docker ps
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **1. Generate the Prisma Client**
+
+```sh
+yarn prisma generate
+```
+
+### **2. Apply Database Migrations**
+
+```sh
+yarn prisma migrate dev
+```
+
+### **3. Push the Schema to the Database**
+
+```sh
+yarn prisma db push
+```
+
+### **4. Verify Database Connection**
+
+Run Prisma Studio to explore your database:
+
+```sh
+yarn prisma studio
+```
+
+---
+
+## Seed the Database
+
+```sh
+yarn prisma db seed
+```
+
+---
+
+## Run the development server:
+
+```sh
+yarn dev
+```
