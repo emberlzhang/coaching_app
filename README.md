@@ -1,4 +1,12 @@
-## Welcome to Coachly, the Coach Booking App
+# Welcome to Coachly, the Coach Booking App
+
+Features:
+
+1. Coaches can add slots of availability to their calendars. These slots are always 2 hours long and each slot can be booked by exactly 1 student.
+2. Coaches can view their own upcoming slots.
+3. Students can book upcoming, available slots for any coach.
+
+# Setup Instructions
 
 This guide will help with running the PostgreSQL database in Docker and setting up Prisma for database management.
 
