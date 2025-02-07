@@ -1,5 +1,7 @@
 # Welcome to Coachly, the Coach Booking App
 
+This project is built with Next.js, Prisma, and PostgreSQL.
+
 Features:
 
 1. Coaches can add slots of availability to their calendars. These slots are always 2 hours long and each slot can be booked by exactly 1 student.
